@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdybl1mdll8t2"]
+
+[ext_resource type="Texture2D" uid="uid://b0v5lnapsodxo" path="res://icon.svg" id="1_pt04h"]
+[ext_resource type="Script" path="res://scripts/multi_mesh_instance_2d.gd" id="2_l23ng"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_uwyyo"]
+size = Vector2(40, 40)
+
+[sub_resource type="MultiMesh" id="MultiMesh_0f6ao"]
+use_custom_data = true
+mesh = SubResource("QuadMesh_uwyyo")
+
+[node name="Demo" type="Node2D"]
+
+[node name="MultiMeshInstance2D" type="MultiMeshInstance2D" parent="."]
+multimesh = SubResource("MultiMesh_0f6ao")
+texture = ExtResource("1_pt04h")
+script = ExtResource("2_l23ng")

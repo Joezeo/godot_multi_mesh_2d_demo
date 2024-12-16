@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://ciwnqpq1lw7qk"]
+
+[ext_resource type="Shader" path="res://shaders/health_bar.gdshader" id="1_mt048"]
+[ext_resource type="Script" path="res://scenes/multi_mesh_health_bar.gd" id="2_ivty3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_atdq7"]
+shader = ExtResource("1_mt048")
+shader_parameter/colors = PackedColorArray(0.580392, 0.0705882, 0, 1, 0.678431, 0.309804, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_o3w6s"]
+size = Vector2(32, 4)
+
+[sub_resource type="MultiMesh" id="MultiMesh_7a75s"]
+use_custom_data = true
+mesh = SubResource("QuadMesh_o3w6s")
+
+[node name="HealthBar" type="Node2D"]
+
+[node name="MultiMeshInstance2D" type="MultiMeshInstance2D" parent="."]
+material = SubResource("ShaderMaterial_atdq7")
+multimesh = SubResource("MultiMesh_7a75s")
+script = ExtResource("2_ivty3")
